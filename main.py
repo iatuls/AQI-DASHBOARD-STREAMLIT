@@ -16,10 +16,10 @@ if 'overview_selected' not in st.session_state:
 
 st.sidebar.title('AQI Analysis')
 
-options = st.sidebar.selectbox('Select One',['Overview','State Analysis'])
+options = st.sidebar.selectbox('Select One',['Info','Overview','State Analysis'])
 
 
-if options=='Overview':
+if options=='Info':
 
     st.markdown("""# 🇮🇳 India AQI Dashboard
 ## About the Project
@@ -44,6 +44,8 @@ The goal of this project is to transform raw AQI data into an **interactive and 
 
 > **Note:** This project is created for learning and data-analysis purposes. The dashboard and its insights may be improved further as the project evolves.
 """)
+
+elif(options=='Overview'):
     
     overview_option = st.sidebar.selectbox('Select Overview',['Average AQI','Best Cities','Worst Cities','Monthly Trend'])
 
