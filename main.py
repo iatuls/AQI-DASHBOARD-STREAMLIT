@@ -21,13 +21,38 @@ options = st.sidebar.selectbox('Select One',['Overview','State Analysis'])
 
 if options=='Overview':
 
-    st.title('INDIAs AQI OVERVIEW')
+    st.markdown("""# 🇮🇳 India AQI Dashboard
+## About the Project
+
+This interactive dashboard provides an overview of **Air Quality Index (AQI) across India** using AQI data collected for the period **2022–2025**.
+
+The dataset was obtained from **Kaggle** and further cleaned, transformed, and analyzed to make it suitable for meaningful visualization and exploration.
+
+## What can you explore?
+
+📊 **Overview**
+
+Get a quick snapshot of India's air quality, including average AQI, best and worst-performing areas, and monthly AQI trends.
+
+🗺️ **State Analysis**
+
+Explore AQI across different states and compare their minimum, maximum, and average AQI, along with the best and worst-performing areas.
+
+## Purpose
+
+The goal of this project is to transform raw AQI data into an **interactive and easy-to-understand analytical dashboard**, allowing users to explore air-quality patterns across different locations and time periods.
+
+> **Note:** This project is created for learning and data-analysis purposes. The dashboard and its insights may be improved further as the project evolves.
+""")
+    
     overview_option = st.sidebar.selectbox('Select Overview',['Average AQI','Best Cities','Worst Cities','Monthly Trend'])
 
     btn1 = st.sidebar.button('Check Overview')
 
     if btn1:
+
         st.session_state.overview_selected = overview_option
+        st.title('INDIAs AQI OVERVIEW')
 
     if st.session_state.overview_selected == 'Average AQI':
         page.overview.load_overview()
