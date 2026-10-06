@@ -22,9 +22,9 @@ def avg_aqi_of_state(state):
 
 def load_overview():
     l1,l2,l3 = st.columns(3)
-    l1.metric("Min AQI",aqi['aqi_value'].min(),border=True)
-    l2.metric("Max AQI",aqi['aqi_value'].max(),border=True)
-    l3.metric("Average AQI",country_avg_aqi,border=True)
+    l1.metric("🍃 Min AQI",aqi['aqi_value'].min(),border=True,delta='Healthy')
+    l2.metric("🚨 Max AQI",aqi['aqi_value'].max(),border=True,delta='Very poor', delta_color='inverse')
+    l3.metric("🔴 Average AQI",country_avg_aqi,border=True,delta=page.State_Analysis.aqi_category(country_avg_aqi),delta_color='orange')
     st.bar_chart(data=avg_aqi_year_wise, x='Year', y='aqi_value', color="#0080FF")
     state_selected = st.selectbox('Select State',sorted(aqi['state'].unique().tolist()))
     btn1 = st.button(f"Check avg AQI of {state_selected}")
