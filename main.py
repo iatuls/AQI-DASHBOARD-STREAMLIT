@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import page.State_Analysis
 from data import load_data
 import page.overview
